@@ -12,7 +12,9 @@ class EmotionCardStore {
   addEmotionCard({ emotion, comment }: EmotionFormFields) {
     const newEmotionCard: EmotionCardData = {
       id: crypto.randomUUID(),
-      emotion,
+      value: emotion,
+      label: emotion.charAt(0).toUpperCase() + emotion.slice(1),
+      color: "#000000",
       comment,
     };
 

@@ -10,7 +10,7 @@ const EmotionCard = ({ emotionCard }: EmotionCardProps) => {
   return (
     <Card className="rounded-md">
       <CardHeader>
-        <CardTitle>{emotionCard.emotion}</CardTitle>
+        <CardTitle>{emotionCard.label}</CardTitle>
       </CardHeader>
 
       <CardContent>{emotionCard.comment}</CardContent>

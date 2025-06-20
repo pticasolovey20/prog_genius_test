@@ -23,9 +23,12 @@ const EmotionSelect = ({ value, onChange }: EmotionSelectProps) => {
 
       <SelectContent>
         <SelectGroup>
-          {emotionOptions.map(({ value, label }) => (
+          {emotionOptions.map(({ value, label, icon: Icon }) => (
             <SelectItem key={value} value={value}>
-              {label}
+              <div className="flex items-center gap-2">
+                {Icon && <Icon size={18} />}
+                <span>{label}</span>
+              </div>
             </SelectItem>
           ))}
         </SelectGroup>

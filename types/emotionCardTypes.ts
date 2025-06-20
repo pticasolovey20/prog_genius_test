@@ -1,5 +1,7 @@
 export interface EmotionCardData {
   id: string;
-  emotion: string;
+  value: string;
+  label: string;
+  color: string;
   comment?: string;
 }

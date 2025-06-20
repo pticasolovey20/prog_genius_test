@@ -1,22 +1,143 @@
+import {
+  Smile,
+  Frown,
+  Zap,
+  ZapOff,
+  Coffee,
+  AlertTriangle,
+  Trash2,
+  Heart,
+  Gift,
+  HelpCircle,
+  Sun,
+  Star,
+  Slash,
+  SmilePlus,
+  UserX,
+  Feather,
+  Zap as ExcitementIcon,
+  Coffee as BoredomIcon,
+  ThumbsUp,
+} from "lucide-react";
+
 export const emotionOptions = [
-  { value: "joy", label: "Радість / Joy" },
-  { value: "sadness", label: "Смуток / Sadness" },
-  { value: "anger", label: "Злість / Anger" },
-  { value: "surprise", label: "Подив / Surprise" },
-  { value: "calm", label: "Спокій / Calm" },
-  { value: "fear", label: "Страх / Fear" },
-  { value: "disgust", label: "Огида / Disgust" },
-  { value: "love", label: "Любов / Love" },
-  { value: "gratitude", label: "Вдячність / Gratitude" },
-  { value: "anxiety", label: "Тривога / Anxiety" },
-  { value: "confusion", label: "Розгубленість / Confusion" },
-  { value: "hope", label: "Надія / Hope" },
-  { value: "pride", label: "Гордість / Pride" },
-  { value: "shame", label: "Сором / Shame" },
-  { value: "embarrassment", label: "Ніяковість / Embarrassment" },
-  { value: "loneliness", label: "Самотність / Loneliness" },
-  { value: "relief", label: "Полегшення / Relief" },
-  { value: "excitement", label: "Захоплення / Excitement" },
-  { value: "boredom", label: "Нудьга / Boredom" },
-  { value: "confidence", label: "Впевненість / Confidence" },
+  {
+    value: "joy",
+    label: "Радість / Joy",
+    icon: Smile,
+  },
+
+  {
+    value: "sadness",
+    label: "Смуток / Sadness",
+    icon: Frown,
+  },
+
+  {
+    value: "anger",
+    label: "Злість / Anger",
+    icon: Zap,
+  },
+
+  {
+    value: "surprise",
+    label: "Подив / Surprise",
+    icon: ZapOff,
+  },
+
+  {
+    value: "calm",
+    label: "Спокій / Calm",
+    icon: Coffee,
+  },
+
+  {
+    value: "fear",
+    label: "Страх / Fear",
+    icon: AlertTriangle,
+  },
+
+  {
+    value: "disgust",
+    label: "Огида / Disgust",
+    icon: Trash2,
+  },
+
+  {
+    value: "love",
+    label: "Любов / Love",
+    icon: Heart,
+  },
+
+  {
+    value: "gratitude",
+    label: "Вдячність / Gratitude",
+    icon: Gift,
+  },
+
+  {
+    value: "anxiety",
+    label: "Тривога / Anxiety",
+    icon: Zap,
+  },
+
+  {
+    value: "confusion",
+    label: "Розгубленість / Confusion",
+    icon: HelpCircle,
+  },
+
+  {
+    value: "hope",
+    label: "Надія / Hope",
+    icon: Sun,
+  },
+
+  {
+    value: "pride",
+    label: "Гордість / Pride",
+    icon: Star,
+  },
+
+  {
+    value: "shame",
+    label: "Сором / Shame",
+    icon: Slash,
+  },
+
+  {
+    value: "embarrassment",
+    label: "Ніяковість / Embarrassment",
+    icon: SmilePlus,
+  },
+
+  {
+    value: "loneliness",
+    label: "Самотність / Loneliness",
+    icon: UserX,
+  },
+
+  {
+    value: "relief",
+    label: "Полегшення / Relief",
+    icon: Feather,
+  },
+
+  {
+    value: "excitement",
+    label: "Захоплення / Excitement",
+    icon: ExcitementIcon,
+  },
+
+  {
+    value: "boredom",
+    label: "Нудьга / Boredom",
+    icon: BoredomIcon,
+  },
+
+  {
+    value: "confidence",
+    label: "Впевненість / Confidence",
+    icon: ThumbsUp,
+  },
 ];
