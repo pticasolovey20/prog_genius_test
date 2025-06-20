@@ -5,25 +5,23 @@ import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 import {
   Dialog,
+  DialogTitle,
+  DialogHeader,
+  DialogTrigger,
   DialogContent,
   DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 
 import {
   Drawer,
-  DrawerClose,
+  DrawerTitle,
+  DrawerHeader,
+  DrawerTrigger,
   DrawerContent,
   DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
 } from "@/components/ui/drawer";
 
-import { Button } from "@/components/ui/button";
+import EmotionForm from "@/components/form/EmotionForm";
 import AddEmotionButton from "@/components/AddEmotionButton";
 
 const EmotionCardModal = () => {
@@ -31,9 +29,12 @@ const EmotionCardModal = () => {
 
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
+  const handleToggleOpen = (value: boolean) => setIsOpen(value);
+  const handleClose = () => setIsOpen(false);
+
   if (isDesktop) {
     return (
-      <Dialog open={isOpen} onOpenChange={setIsOpen}>
+      <Dialog open={isOpen} onOpenChange={handleToggleOpen}>
         <DialogTrigger asChild>
           <AddEmotionButton />
         </DialogTrigger>
@@ -41,38 +42,36 @@ const EmotionCardModal = () => {
         <DialogContent className="min-w-[600px] max-h-[calc(100dvh-50px)] flex flex-col">
           <DialogHeader className="gap-0 !text-center">
             <DialogTitle className="text-lg lg:text-xl">
-              Add emotion
+              Emotion Form
             </DialogTitle>
 
             <DialogDescription className="text-base lg:text-lg">
               Manage your emotion here
             </DialogDescription>
           </DialogHeader>
+
+          <EmotionForm onClose={handleClose} />
         </DialogContent>
       </Dialog>
     );
   }
 
   return (
-    <Drawer open={isOpen} onOpenChange={setIsOpen}>
+    <Drawer open={isOpen} onOpenChange={handleToggleOpen}>
       <DrawerTrigger asChild>
         <AddEmotionButton />
       </DrawerTrigger>
 
       <DrawerContent className="max-h-[calc(100dvh-50px)] !h-auto">
         <DrawerHeader className="gap-0 !text-center">
-          <DrawerTitle className="text-lg">Add emotion</DrawerTitle>
+          <DrawerTitle className="text-lg">Emotion Form</DrawerTitle>
 
           <DrawerDescription className="text-base">
             Manage your emotion here
           </DrawerDescription>
         </DrawerHeader>
 
-        <DrawerFooter className="pt-2">
-          <DrawerClose asChild>
-            <Button variant="outline">Cancel</Button>
-          </DrawerClose>
-        </DrawerFooter>
+        <EmotionForm onClose={handleClose} />
       </DrawerContent>
     </Drawer>
   );

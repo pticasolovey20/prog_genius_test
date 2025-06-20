@@ -1,5 +1,6 @@
 import { makeAutoObservable } from "mobx";
 import { EmotionCardData } from "@/types/emotionCardTypes";
+import { EmotionFormFields } from "@/types/emotionFormTypes";
 
 class EmotionCardStore {
   emotionCards: EmotionCardData[] = [];
@@ -8,14 +9,14 @@ class EmotionCardStore {
     makeAutoObservable(this);
   }
 
-  addEmotionCard(emotion: string, comment: string) {
+  addEmotionCard({ emotion, comment }: EmotionFormFields) {
     const newEmotionCard: EmotionCardData = {
       id: crypto.randomUUID(),
       emotion,
       comment,
     };
 
-    this.emotionCards.push(newEmotionCard);
+    this.emotionCards = [newEmotionCard, ...this.emotionCards];
   }
 
   removeEmotionCard(id: string) {
