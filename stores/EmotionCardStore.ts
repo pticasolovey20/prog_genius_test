@@ -27,6 +27,11 @@ class EmotionCardStore {
     }
   }
 
+  setEmotionCards(cards: EmotionCardData[]) {
+    this.emotionCards = cards;
+    this.saveToLocalStorage();
+  }
+
   addEmotionCard({ emotion, comment }: EmotionFormFields) {
     const newEmotionCard: EmotionCardData = {
       id: crypto.randomUUID(),
@@ -51,7 +56,11 @@ class EmotionCardStore {
   }
 
   saveToLocalStorage() {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(this.emotionCards));
+    if (this.emotionCards.length === 0) {
+      localStorage.removeItem(STORAGE_KEY);
+    } else {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(this.emotionCards));
+    }
   }
 }
 

@@ -1,4 +1,6 @@
+import { useMemo } from "react";
 import { cn } from "@/lib/utils";
+
 import { emotionOptions } from "@/constants/emotion";
 import { EmotionCardData } from "@/types/emotionCardTypes";
 
@@ -12,9 +14,12 @@ interface EmotionCardProps {
 }
 
 const EmotionCard = ({ emotionCard, onDelete }: EmotionCardProps) => {
-  const EmotionIcon =
-    emotionOptions.find((option) => option.value === emotionCard.value)?.icon ??
-    HelpCircle;
+  const EmotionIcon = useMemo(() => {
+    return (
+      emotionOptions.find((option) => option.value === emotionCard.value)
+        ?.icon ?? HelpCircle
+    );
+  }, [emotionCard.value]);
 
   const hasComment = !!emotionCard.comment?.length;
 
@@ -47,6 +52,8 @@ const EmotionCard = ({ emotionCard, onDelete }: EmotionCardProps) => {
           "text-white hover:text-white hover:bg-white/10"
         )}
         onClick={() => onDelete(emotionCard.id)}
+        // Prevent pointer down to avoid triggering drag-and-drop
+        onPointerDown={(event) => event.stopPropagation()}
       >
         <X className="!w-5 !h-5" />
       </Button>
