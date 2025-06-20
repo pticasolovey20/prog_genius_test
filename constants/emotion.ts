@@ -141,3 +141,26 @@ export const emotionOptions = [
     icon: ThumbsUp,
   },
 ];
+
+export const emotionColorMap: Record<string, string> = {
+  joy: "#F7C948",
+  sadness: "#5B8DEF",
+  anger: "#F5564E",
+  surprise: "#9F7AEA",
+  calm: "#2F855A",
+  fear: "#ED8936",
+  disgust: "#718096",
+  love: "#E53E3E",
+  gratitude: "#38B2AC",
+  anxiety: "#E9D8FD",
+  confusion: "#ECC94B",
+  hope: "#68D391",
+  pride: "#D69E2E",
+  shame: "#A0AEC0",
+  embarrassment: "#F6AD55",
+  loneliness: "#4FD1C5",
+  relief: "#81E6D9",
+  excitement: "#ED64A6",
+  boredom: "#CBD5E0",
+  confidence: "#3182CE",
+};

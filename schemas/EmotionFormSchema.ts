@@ -5,7 +5,7 @@ export const EmotionFormSchema = zod.object({
 
   comment: zod
     .string()
-    .max(30, { message: "Maximum length is 30" })
+    .max(50, { message: "Maximum length is 50" })
     .refine((value) => value.trim() === "" || value.trim().length >= 2, {
       message: "Minimum length is 2",
     })
