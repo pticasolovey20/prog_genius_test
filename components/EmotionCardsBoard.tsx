@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { observer } from "mobx-react-lite";
 import emotionCardStore from "@/stores/EmotionCardStore";
 
@@ -7,6 +8,10 @@ import EmotionCard from "@/components/card/EmotionCard";
 
 const EmotionCardsBoard = () => {
   const { emotionCards } = emotionCardStore;
+
+  useEffect(() => {
+    emotionCardStore.getFromLocalStorage();
+  }, []);
 
   const handleCardDelete = (id: string) => {
     emotionCardStore.removeEmotionCard(id);

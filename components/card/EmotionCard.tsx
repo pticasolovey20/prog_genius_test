@@ -1,7 +1,8 @@
 import { cn } from "@/lib/utils";
+import { emotionOptions } from "@/constants/emotion";
 import { EmotionCardData } from "@/types/emotionCardTypes";
 
-import { X } from "lucide-react";
+import { HelpCircle, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
@@ -11,7 +12,10 @@ interface EmotionCardProps {
 }
 
 const EmotionCard = ({ emotionCard, onDelete }: EmotionCardProps) => {
-  const Icon = emotionCard.icon;
+  const EmotionIcon =
+    emotionOptions.find((option) => option.value === emotionCard.value)?.icon ??
+    HelpCircle;
+
   const hasComment = !!emotionCard.comment?.length;
 
   return (
@@ -26,7 +30,7 @@ const EmotionCard = ({ emotionCard, onDelete }: EmotionCardProps) => {
       style={{ backgroundColor: emotionCard.color }}
     >
       <CardHeader className="flex flex-col items-center">
-        <Icon className="w-16 sm:w-20 h-16 sm:h-20 mb-2" />
+        <EmotionIcon className="w-16 sm:w-20 h-16 sm:h-20 mb-2" />
 
         <CardTitle className="text-xl sm:text-2xl font-semibold text-center">
           {emotionCard.label}
