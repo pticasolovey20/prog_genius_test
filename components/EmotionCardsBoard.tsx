@@ -22,6 +22,7 @@ import {
 import emotionCardStore from "@/stores/EmotionCardStore";
 
 import EmotionCard from "@/components/card/EmotionCard";
+import SwipeableContainer from "./swipeable/SwipeableContainer";
 import SortableContainer from "@/components/sortable/SortableContainer";
 
 const EmotionCardsBoard = () => {
@@ -75,10 +76,15 @@ const EmotionCardsBoard = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
           {emotionCards.map((emotionCard) => (
             <SortableContainer key={emotionCard.id} id={emotionCard.id}>
-              <EmotionCard
-                emotionCard={emotionCard}
+              <SwipeableContainer
+                id={emotionCard.id}
                 onDelete={handleCardDelete}
-              />
+              >
+                <EmotionCard
+                  emotionCard={emotionCard}
+                  onDelete={handleCardDelete}
+                />
+              </SwipeableContainer>
             </SortableContainer>
           ))}
         </div>
