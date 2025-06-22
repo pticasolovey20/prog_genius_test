@@ -42,13 +42,9 @@ const EmotionCardModal = () => {
 
         <DialogContent className="min-w-[600px] max-h-[calc(100dvh-50px)] flex flex-col">
           <DialogHeader className="gap-0 !text-center">
-            <DialogTitle className="text-lg lg:text-xl">
-              Emotion Form
-            </DialogTitle>
+            <DialogTitle className="text-lg lg:text-xl">Emotion Form</DialogTitle>
 
-            <DialogDescription className="text-base lg:text-lg">
-              Manage your emotion here
-            </DialogDescription>
+            <DialogDescription className="text-base lg:text-lg">Manage your emotion here</DialogDescription>
           </DialogHeader>
 
           <EmotionForm onClose={handleClose} />
@@ -67,9 +63,7 @@ const EmotionCardModal = () => {
         <DrawerHeader className="gap-0 !text-center">
           <DrawerTitle className="text-lg">Emotion Form</DrawerTitle>
 
-          <DrawerDescription className="text-base">
-            Manage your emotion here
-          </DrawerDescription>
+          <DrawerDescription className="text-base">Manage your emotion here</DrawerDescription>
         </DrawerHeader>
 
         <EmotionForm onClose={handleClose} />

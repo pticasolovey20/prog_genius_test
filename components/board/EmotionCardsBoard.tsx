@@ -1,8 +1,11 @@
 "use client";
 
-import { useMediaQuery } from "@/hooks/useMediaQuery";
-import { useEffect, useMemo, useCallback } from "react";
+import dynamic from "next/dynamic";
 import { observer } from "mobx-react-lite";
+import { useEffect, useMemo, useCallback } from "react";
+
+import { useMediaQuery } from "@/hooks/useMediaQuery";
+import emotionCardStore from "@/stores/EmotionCardStore";
 
 import {
   useSensors,
@@ -13,18 +16,13 @@ import {
   DndContext,
   closestCorners,
 } from "@dnd-kit/core";
-
-import {
-  SortableContext,
-  arrayMove,
-  verticalListSortingStrategy,
-} from "@dnd-kit/sortable";
-
-import emotionCardStore from "@/stores/EmotionCardStore";
+import { SortableContext, arrayMove, verticalListSortingStrategy } from "@dnd-kit/sortable";
 
 import EmotionCard from "@/components/card/EmotionCard";
-import SortableContainer from "@/components/sortable/SortableContainer";
-import SwipeableContainer from "@/components/swipeable/SwipeableContainer";
+
+const EmptyBoard = dynamic(() => import("@/components/board/EmptyBoard"), { ssr: false });
+const SortableContainer = dynamic(() => import("@/components/sortable/SortableContainer"), { ssr: false });
+const SwipeableContainer = dynamic(() => import("@/components/swipeable/SwipeableContainer"), { ssr: false });
 
 const EmotionCardsBoard = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
@@ -61,9 +59,7 @@ const EmotionCardsBoard = () => {
       if (!over) return;
 
       if (active.id !== over.id) {
-        const oldIndex = emotionCards.findIndex(
-          (card) => card.id === active.id
-        );
+        const oldIndex = emotionCards.findIndex((card) => card.id === active.id);
 
         const newIndex = emotionCards.findIndex((card) => card.id === over.id);
 
@@ -81,25 +77,18 @@ const EmotionCardsBoard = () => {
     emotionCardStore.removeEmotionCard(id);
   }, []);
 
+  if (emotionCards.length === 0) {
+    return <EmptyBoard />;
+  }
+
   return isMobile ? (
-    <DndContext
-      sensors={sensors}
-      onDragEnd={handleDragEnd}
-      collisionDetection={closestCorners}
-    >
-      <SortableContext
-        items={emotionCardIds}
-        strategy={verticalListSortingStrategy}
-      >
+    <DndContext sensors={sensors} onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
+      <SortableContext items={emotionCardIds} strategy={verticalListSortingStrategy}>
         <div className="flex flex-col gap-4 mt-4 w-full flex-1 overflow-hidden">
           {emotionCards.map((card) => (
             <SortableContainer key={card.id} id={card.id}>
               <SwipeableContainer id={card.id} onDelete={handleCardDelete}>
-                <EmotionCard
-                  emotionCard={card}
-                  showDeleteButton={false}
-                  onDelete={handleCardDelete}
-                />
+                <EmotionCard emotionCard={card} showDeleteButton={false} onDelete={handleCardDelete} />
               </SwipeableContainer>
             </SortableContainer>
           ))}
@@ -109,11 +98,7 @@ const EmotionCardsBoard = () => {
   ) : (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 w-full">
       {emotionCards.map((card) => (
-        <EmotionCard
-          key={card.id}
-          emotionCard={card}
-          onDelete={handleCardDelete}
-        />
+        <EmotionCard key={card.id} emotionCard={card} onDelete={handleCardDelete} />
       ))}
     </div>
   );

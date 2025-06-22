@@ -8,23 +8,21 @@ interface AddEmotionButtonProps {
   disabled?: boolean;
 }
 
-const AddEmotionButton = forwardRef<HTMLButtonElement, AddEmotionButtonProps>(
-  ({ onClick, disabled }, ref) => {
-    return (
-      <Button
-        ref={ref}
-        size="lg"
-        variant="outline"
-        onClick={onClick}
-        disabled={disabled}
-        className="max-w-[200px] w-full flex items-center gap-2 px-4"
-      >
-        <Plus />
-        <span className="text-base font-semibold">Add Emotion</span>
-      </Button>
-    );
-  }
-);
+const AddEmotionButton = forwardRef<HTMLButtonElement, AddEmotionButtonProps>(({ onClick, disabled }, ref) => {
+  return (
+    <Button
+      ref={ref}
+      size="lg"
+      variant="outline"
+      onClick={onClick}
+      disabled={disabled}
+      className="max-w-[200px] w-full flex items-center gap-2 px-4"
+    >
+      <Plus />
+      <span className="text-base font-semibold">Add Emotion</span>
+    </Button>
+  );
+});
 
 AddEmotionButton.displayName = "AddEmotionButton";
 
