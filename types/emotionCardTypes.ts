@@ -3,5 +3,5 @@ export interface EmotionCardData {
   value: string;
   label: string;
   color: string;
-  comment?: string;
+  comment: string;
 }
