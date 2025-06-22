@@ -1,6 +1,7 @@
+import { cn } from "@/lib/utils";
+
 import EmotionCardModal from "@/components/EmotionCardModal";
 import EmotionCardsBoard from "@/components/EmotionCardsBoard";
-import { cn } from "@/lib/utils";
 
 const HomePage = () => {
   return (

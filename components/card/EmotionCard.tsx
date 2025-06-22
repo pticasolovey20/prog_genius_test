@@ -29,8 +29,8 @@ const EmotionCard = ({
   return (
     <Card
       className={cn(
-        "flex flex-col items-center justify-center",
-        "relative h-[300px] p-4 rounded-none shadow-md text-white"
+        "relative flex flex-col items-center justify-center",
+        "h-[300px] p-4 border-none rounded-none md:rounded-md shadow-md text-white"
       )}
       style={{ backgroundColor: emotionCard.color }}
     >

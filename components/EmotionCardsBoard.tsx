@@ -1,5 +1,5 @@
 "use client";
-import { cn } from "@/lib/utils";
+
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useEffect, useMemo, useCallback } from "react";
 import { observer } from "mobx-react-lite";
@@ -29,8 +29,19 @@ import SwipeableContainer from "@/components/swipeable/SwipeableContainer";
 const EmotionCardsBoard = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
 
-  const pointerSensor = useSensor(PointerSensor);
-  const touchSensor = useSensor(TouchSensor);
+  const pointerSensor = useSensor(PointerSensor, {
+    activationConstraint: {
+      distance: 8,
+    },
+  });
+
+  const touchSensor = useSensor(TouchSensor, {
+    activationConstraint: {
+      delay: 200,
+      tolerance: 8,
+    },
+  });
+
   const sensors = useSensors(pointerSensor, touchSensor);
 
   const { emotionCards } = emotionCardStore;
@@ -62,6 +73,7 @@ const EmotionCardsBoard = () => {
         emotionCardStore.setEmotionCards(newOrder);
       }
     },
+
     [emotionCards]
   );
 
@@ -69,7 +81,7 @@ const EmotionCardsBoard = () => {
     emotionCardStore.removeEmotionCard(id);
   }, []);
 
-  return (
+  return isMobile ? (
     <DndContext
       sensors={sensors}
       onDragEnd={handleDragEnd}
@@ -79,38 +91,31 @@ const EmotionCardsBoard = () => {
         items={emotionCardIds}
         strategy={verticalListSortingStrategy}
       >
-        <div
-          className={cn(
-            "flex-1 w-full mt-4 overflow-hidden",
-            isMobile
-              ? "flex flex-col gap-4"
-              : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
-          )}
-        >
-          {emotionCards.map((emotionCard) => {
-            return isMobile ? (
-              <SortableContainer key={emotionCard.id} id={emotionCard.id}>
-                <SwipeableContainer
-                  id={emotionCard.id}
+        <div className="flex flex-col gap-4 mt-4 w-full flex-1 overflow-hidden">
+          {emotionCards.map((card) => (
+            <SortableContainer key={card.id} id={card.id}>
+              <SwipeableContainer id={card.id} onDelete={handleCardDelete}>
+                <EmotionCard
+                  emotionCard={card}
+                  showDeleteButton={false}
                   onDelete={handleCardDelete}
-                >
-                  <EmotionCard
-                    emotionCard={emotionCard}
-                    showDeleteButton={!isMobile}
-                    onDelete={handleCardDelete}
-                  />
-                </SwipeableContainer>
-              </SortableContainer>
-            ) : (
-              <EmotionCard
-                emotionCard={emotionCard}
-                onDelete={handleCardDelete}
-              />
-            );
-          })}
+                />
+              </SwipeableContainer>
+            </SortableContainer>
+          ))}
         </div>
       </SortableContext>
     </DndContext>
+  ) : (
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 w-full flex-1 overflow-hidden">
+      {emotionCards.map((card) => (
+        <EmotionCard
+          key={card.id}
+          emotionCard={card}
+          onDelete={handleCardDelete}
+        />
+      ))}
+    </div>
   );
 };
 

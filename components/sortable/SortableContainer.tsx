@@ -21,8 +21,9 @@ const SortableContainer = ({ id, children }: SortableContainerProps) => {
     transform: CSS.Transform.toString(transform),
     transition,
     opacity: isDragging ? 0.9 : 1,
-    cursor: "grab",
-    touchAction: "none",
+    cursor: isDragging ? "grabbing" : "grab",
+    touchAction: "manipulation",
+    zIndex: isDragging ? 1000 : "auto",
   };
 
   return (
