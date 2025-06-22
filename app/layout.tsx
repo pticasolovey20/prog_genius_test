@@ -13,7 +13,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Emotion cards board",
+  title: "Emotion Cards Board",
   description: "Test task for ProgGenius",
 };
 

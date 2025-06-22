@@ -21,16 +21,11 @@ const EmotionCard = ({ emotionCard, onDelete }: EmotionCardProps) => {
     );
   }, [emotionCard.value]);
 
-  const hasComment = !!emotionCard.comment?.length;
-
   return (
     <Card
       className={cn(
-        "relative h-[300px] flex flex-col",
-        "p-4 rounded-md shadow-md text-white",
-        hasComment
-          ? "items-center justify-between"
-          : "justify-center items-center"
+        "flex flex-col items-center justify-center",
+        "relative h-[300px] p-4 rounded-md shadow-md text-white"
       )}
       style={{ backgroundColor: emotionCard.color }}
     >
