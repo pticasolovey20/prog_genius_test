@@ -10,10 +10,15 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
 interface EmotionCardProps {
   emotionCard: EmotionCardData;
+  showDeleteButton?: boolean;
   onDelete: (id: string) => void;
 }
 
-const EmotionCard = ({ emotionCard, onDelete }: EmotionCardProps) => {
+const EmotionCard = ({
+  emotionCard,
+  showDeleteButton = true,
+  onDelete,
+}: EmotionCardProps) => {
   const EmotionIcon = useMemo(() => {
     return (
       emotionOptions.find((option) => option.value === emotionCard.value)
@@ -25,7 +30,7 @@ const EmotionCard = ({ emotionCard, onDelete }: EmotionCardProps) => {
     <Card
       className={cn(
         "flex flex-col items-center justify-center",
-        "relative h-[300px] p-4 rounded-md shadow-md text-white"
+        "relative h-[300px] p-4 rounded-none shadow-md text-white"
       )}
       style={{ backgroundColor: emotionCard.color }}
     >
@@ -39,19 +44,22 @@ const EmotionCard = ({ emotionCard, onDelete }: EmotionCardProps) => {
 
       <CardContent className="text-center">{emotionCard.comment}</CardContent>
 
-      <Button
-        size="icon"
-        variant="ghost"
-        className={cn(
-          "hidden sm:flex absolute top-2 right-2",
-          "text-white hover:text-white hover:bg-white/10"
-        )}
-        onClick={() => onDelete(emotionCard.id)}
-        // Prevent pointer down to avoid triggering drag-and-drop
-        onPointerDown={(event) => event.stopPropagation()}
-      >
-        <X className="!w-5 !h-5" />
-      </Button>
+      {showDeleteButton && (
+        <Button
+          size="icon"
+          variant="ghost"
+          aria-label="delete"
+          className={cn(
+            "absolute top-2 right-2",
+            "text-white hover:text-white hover:bg-white/10"
+          )}
+          onClick={() => onDelete(emotionCard.id)}
+          // Prevent pointer down to avoid triggering drag-and-drop
+          onPointerDown={(event) => event.stopPropagation()}
+        >
+          <X className="!w-5 !h-5" />
+        </Button>
+      )}
     </Card>
   );
 };

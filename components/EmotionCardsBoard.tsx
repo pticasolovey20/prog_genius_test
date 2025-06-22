@@ -1,5 +1,6 @@
 "use client";
-
+import { cn } from "@/lib/utils";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useEffect, useMemo, useCallback } from "react";
 import { observer } from "mobx-react-lite";
 
@@ -16,16 +17,18 @@ import {
 import {
   SortableContext,
   arrayMove,
-  rectSortingStrategy,
+  verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 
 import emotionCardStore from "@/stores/EmotionCardStore";
 
 import EmotionCard from "@/components/card/EmotionCard";
-import SwipeableContainer from "./swipeable/SwipeableContainer";
 import SortableContainer from "@/components/sortable/SortableContainer";
+import SwipeableContainer from "@/components/swipeable/SwipeableContainer";
 
 const EmotionCardsBoard = () => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
   const pointerSensor = useSensor(PointerSensor);
   const touchSensor = useSensor(TouchSensor);
   const sensors = useSensors(pointerSensor, touchSensor);
@@ -72,21 +75,39 @@ const EmotionCardsBoard = () => {
       onDragEnd={handleDragEnd}
       collisionDetection={closestCorners}
     >
-      <SortableContext items={emotionCardIds} strategy={rectSortingStrategy}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-          {emotionCards.map((emotionCard) => (
-            <SortableContainer key={emotionCard.id} id={emotionCard.id}>
-              <SwipeableContainer
-                id={emotionCard.id}
-                onDelete={handleCardDelete}
-              >
-                <EmotionCard
-                  emotionCard={emotionCard}
+      <SortableContext
+        items={emotionCardIds}
+        strategy={verticalListSortingStrategy}
+      >
+        <div
+          className={cn(
+            "flex-1 w-full mt-4 overflow-hidden",
+            isMobile
+              ? "flex flex-col gap-4"
+              : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+          )}
+        >
+          {emotionCards.map((emotionCard) => {
+            return isMobile ? (
+              <SortableContainer key={emotionCard.id} id={emotionCard.id}>
+                <SwipeableContainer
+                  id={emotionCard.id}
                   onDelete={handleCardDelete}
-                />
-              </SwipeableContainer>
-            </SortableContainer>
-          ))}
+                >
+                  <EmotionCard
+                    emotionCard={emotionCard}
+                    showDeleteButton={!isMobile}
+                    onDelete={handleCardDelete}
+                  />
+                </SwipeableContainer>
+              </SortableContainer>
+            ) : (
+              <EmotionCard
+                emotionCard={emotionCard}
+                onDelete={handleCardDelete}
+              />
+            );
+          })}
         </div>
       </SortableContext>
     </DndContext>
