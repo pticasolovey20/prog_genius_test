@@ -107,7 +107,7 @@ const EmotionCardsBoard = () => {
       </SortableContext>
     </DndContext>
   ) : (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 w-full flex-1 overflow-hidden">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 w-full">
       {emotionCards.map((card) => (
         <EmotionCard
           key={card.id}

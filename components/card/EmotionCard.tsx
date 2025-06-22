@@ -42,7 +42,11 @@ const EmotionCard = ({
         </CardTitle>
       </CardHeader>
 
-      <CardContent className="text-center">{emotionCard.comment}</CardContent>
+      <CardContent>
+        <p className="text-center max-w-[200px] sm:max-w-[250px] break-words">
+          {emotionCard.comment}
+        </p>
+      </CardContent>
 
       {showDeleteButton && (
         <Button
