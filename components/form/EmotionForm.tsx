@@ -14,8 +14,8 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
 
 import EmotionSelect from "@/components/form/EmotionSelect";
 
@@ -66,7 +66,7 @@ const EmotionForm = ({ onClose }: EmotionFormProps) => {
               <FormLabel>Comment</FormLabel>
 
               <FormControl>
-                <Input {...field} placeholder="Type your comment" />
+                <Textarea {...field} placeholder="Type your comment" />
               </FormControl>
 
               <FormMessage />
