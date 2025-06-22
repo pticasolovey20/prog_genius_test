@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
@@ -12,7 +13,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Emotion cards board",
+  title: "Emotion Cards Board",
   description: "Test task for ProgGenius",
 };
 
@@ -23,7 +24,10 @@ interface RootLayoutProps {
 const RootLayout = ({ children }: Readonly<RootLayoutProps>) => {
   return (
     <html lang="en">
-      <body suppressHydrationWarning className={montserrat.className}>
+      <body
+        suppressHydrationWarning
+        className={cn(montserrat.className, "antialiased")}
+      >
         {children}
       </body>
     </html>
