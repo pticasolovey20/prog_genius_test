@@ -84,7 +84,7 @@ const EmotionCardsBoard = () => {
   return isMobile ? (
     <DndContext sensors={sensors} onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
       <SortableContext items={emotionCardIds} strategy={verticalListSortingStrategy}>
-        <div className="flex flex-col gap-4 mt-4 w-full flex-1 overflow-hidden">
+        <div className="flex flex-col gap-4 w-full flex-1 overflow-hidden">
           {emotionCards.map((card) => (
             <SortableContainer key={card.id} id={card.id}>
               <SwipeableContainer id={card.id} onDelete={handleCardDelete}>
@@ -96,7 +96,7 @@ const EmotionCardsBoard = () => {
       </SortableContext>
     </DndContext>
   ) : (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 w-full">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
       {emotionCards.map((card) => (
         <EmotionCard key={card.id} emotionCard={card} onDelete={handleCardDelete} />
       ))}

@@ -5,14 +5,7 @@ import emotionCardStore from "@/stores/EmotionCardStore";
 import { EmotionFormFields } from "@/types/emotionFormTypes";
 import { EmotionFormSchema } from "@/schemas/EmotionFormSchema";
 
-import {
-  Form,
-  FormItem,
-  FormField,
-  FormLabel,
-  FormControl,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form, FormItem, FormField, FormLabel, FormControl, FormMessage } from "@/components/ui/form";
 
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -38,10 +31,7 @@ const EmotionForm = ({ onClose }: EmotionFormProps) => {
 
   return (
     <Form {...emotionForm}>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="w-full space-y-6 p-4 md:p-0 md:px-2 mt-4 overflow-y-auto"
-      >
+      <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-6 p-4 md:p-0 md:px-2 mt-4 overflow-y-auto">
         <FormField
           control={control}
           name="emotion"
@@ -74,7 +64,7 @@ const EmotionForm = ({ onClose }: EmotionFormProps) => {
           )}
         />
 
-        <Button size="lg" type="submit" variant="outline">
+        <Button size="lg" type="submit">
           Add Emotion
         </Button>
       </form>

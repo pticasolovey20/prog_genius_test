@@ -1,10 +1,16 @@
 import { Metadata } from "next";
-import { cn } from "@/lib/utils";
+import { Fragment } from "react";
+import dynamic from "next/dynamic";
 
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import EmotionStatistic from "@/components/statistic/EmotionStatistic";
+import CircleLoader from "@/components/CircleLoader";
+
+const EmotionStatistic = dynamic(() => import("@/components/statistic/EmotionStatistic"), {
+  ssr: false,
+  loading: () => <CircleLoader />,
+});
 
 export const metadata: Metadata = {
   title: "Emotion Statistics",
@@ -13,9 +19,9 @@ export const metadata: Metadata = {
 
 const EmotionStatisticPage = () => {
   return (
-    <main className={cn("min-h-[100dvh] h-full", "max-w-screen-xl w-full", "flex flex-col mx-auto p-4")}>
-      <div className="flex items-center gap-2">
-        <Link href="/" className="">
+    <Fragment>
+      <div className="flex items-center gap-2 mb-4">
+        <Link href="/">
           <Button size="icon" variant="ghost" aria-label="Back to home link button">
             <ArrowLeft className="!h-5 !w-5" />
           </Button>
@@ -25,7 +31,7 @@ const EmotionStatisticPage = () => {
       </div>
 
       <EmotionStatistic />
-    </main>
+    </Fragment>
   );
 };
 

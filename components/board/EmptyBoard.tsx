@@ -1,7 +1,7 @@
 const EmptyBoard = () => {
   return (
-    <div className="flex-1 flex items-center justify-center mt-4">
-      <span className="text-base font-semibold">Nothing found!</span>
+    <div>
+      <p className="text-muted-foreground">Oops! No emotion cards found. Add your first emotion card</p>
     </div>
   );
 };
