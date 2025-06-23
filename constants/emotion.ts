@@ -23,121 +23,121 @@ import {
 export const emotionOptions = [
   {
     value: "joy",
-    label: "Радість / Joy",
+    label: "Joy",
     icon: Smile,
   },
 
   {
     value: "sadness",
-    label: "Смуток / Sadness",
+    label: "Sadness",
     icon: Frown,
   },
 
   {
     value: "anger",
-    label: "Злість / Anger",
+    label: "Anger",
     icon: Zap,
   },
 
   {
     value: "surprise",
-    label: "Подив / Surprise",
+    label: "Surprise",
     icon: ZapOff,
   },
 
   {
     value: "calm",
-    label: "Спокій / Calm",
+    label: "Calm",
     icon: Coffee,
   },
 
   {
     value: "fear",
-    label: "Страх / Fear",
+    label: "Fear",
     icon: AlertTriangle,
   },
 
   {
     value: "disgust",
-    label: "Огида / Disgust",
+    label: "Disgust",
     icon: Trash2,
   },
 
   {
     value: "love",
-    label: "Любов / Love",
+    label: "Love",
     icon: Heart,
   },
 
   {
     value: "gratitude",
-    label: "Вдячність / Gratitude",
+    label: "Gratitude",
     icon: Gift,
   },
 
   {
     value: "anxiety",
-    label: "Тривога / Anxiety",
+    label: "Anxiety",
     icon: Zap,
   },
 
   {
     value: "confusion",
-    label: "Розгубленість / Confusion",
+    label: "Confusion",
     icon: HelpCircle,
   },
 
   {
     value: "hope",
-    label: "Надія / Hope",
+    label: "Hope",
     icon: Sun,
   },
 
   {
     value: "pride",
-    label: "Гордість / Pride",
+    label: "Pride",
     icon: Star,
   },
 
   {
     value: "shame",
-    label: "Сором / Shame",
+    label: "Shame",
     icon: Slash,
   },
 
   {
     value: "embarrassment",
-    label: "Ніяковість / Embarrassment",
+    label: "Embarrassment",
     icon: SmilePlus,
   },
 
   {
     value: "loneliness",
-    label: "Самотність / Loneliness",
+    label: "Loneliness",
     icon: UserX,
   },
 
   {
     value: "relief",
-    label: "Полегшення / Relief",
+    label: "Relief",
     icon: Feather,
   },
 
   {
     value: "excitement",
-    label: "Захоплення / Excitement",
+    label: "Excitement",
     icon: ExcitementIcon,
   },
 
   {
     value: "boredom",
-    label: "Нудьга / Boredom",
+    label: "Boredom",
     icon: BoredomIcon,
   },
 
   {
     value: "confidence",
-    label: "Впевненість / Confidence",
+    label: "Confidence",
     icon: ThumbsUp,
   },
 ];
@@ -166,7 +166,7 @@ export const emotionColorMap: Record<string, string> = {
 };
 
 export const periodOptions = [
-  { value: "today", label: "Today / Сегодня" },
-  { value: "week", label: "Week / Неделя" },
-  { value: "month", label: "Month / Месяц" },
+  { value: "today", label: "Today" },
+  { value: "week", label: "Week" },
+  { value: "month", label: "Month" },
 ];

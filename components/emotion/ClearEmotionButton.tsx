@@ -8,7 +8,7 @@ const ClearEmotionButton = () => {
 
   return (
     <Button size="lg" variant="destructive" className="h-10 w-full flex shrink px-4" onClick={handleClearEmotions}>
-      <span className="text-base font-semibold">Clear Emotions</span>
+      <span className="text-base font-semibold">Clear All</span>
     </Button>
   );
 };

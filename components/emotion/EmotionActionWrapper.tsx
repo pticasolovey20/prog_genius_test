@@ -1,4 +1,7 @@
+"use client";
+
 import dynamic from "next/dynamic";
+import { observer } from "mobx-react-lite";
 import EmotionStore from "@/stores/EmotionStore";
 
 import { Skeleton } from "@/components/ui/skeleton";
@@ -30,4 +33,4 @@ const EmotionActionWrapper = () => {
   );
 };
 
-export default EmotionActionWrapper;
+export default observer(EmotionActionWrapper);

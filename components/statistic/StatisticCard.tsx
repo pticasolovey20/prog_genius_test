@@ -18,7 +18,7 @@ const StatisticCard = ({ element }: StatisticCardProps) => {
     <Card
       className={cn(
         "relative flex flex-col items-center justify-center",
-        "h-[300px] p-4 border-none rounded-none md:rounded-md shadow-md text-white"
+        "h-[300px] p-4 border-none rounded-md shadow-md text-white"
       )}
       style={{ backgroundColor: element.color }}
     >
