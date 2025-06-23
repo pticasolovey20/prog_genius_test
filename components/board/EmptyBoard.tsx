@@ -1,7 +1,11 @@
-const EmptyBoard = () => {
+interface EmptyBoardProps {
+  content: string;
+}
+
+const EmptyBoard = ({ content }: EmptyBoardProps) => {
   return (
-    <div className="flex-1 flex items-center justify-center mt-4">
-      <span className="text-base font-semibold">Nothing found!</span>
+    <div className="mt-8">
+      <p className="text-center md:text-left text-muted-foreground font-medium">{content}</p>
     </div>
   );
 };

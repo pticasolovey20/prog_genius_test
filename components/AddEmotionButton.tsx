@@ -16,7 +16,7 @@ const AddEmotionButton = forwardRef<HTMLButtonElement, AddEmotionButtonProps>(({
       variant="outline"
       onClick={onClick}
       disabled={disabled}
-      className="max-w-[200px] w-full flex items-center gap-2 px-4"
+      className="w-full flex shrink items-center gap-2 px-4"
     >
       <Plus />
       <span className="text-base font-semibold">Add Emotion</span>

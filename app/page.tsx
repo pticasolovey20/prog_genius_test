@@ -1,25 +1,24 @@
-import { cn } from "@/lib/utils";
+import { Fragment } from "react";
 import dynamic from "next/dynamic";
 
-import { Skeleton } from "@/components/ui/skeleton";
+import ActionWrapper from "@/components/emotion/EmotionActionWrapper";
 import SkeletonBoard from "@/components/board/SkeletonBoard";
 
-const EmotionCardModal = dynamic(() => import("@/components/EmotionCardModal"), {
-  ssr: false,
-  loading: () => <Skeleton className="h-10 max-w-[200px] rounded-md" />,
-});
-
-const EmotionCardsBoard = dynamic(() => import("@/components/board/EmotionCardsBoard"), {
+const EmotionBoard = dynamic(() => import("@/components/emotion/EmotionBoard"), {
   ssr: false,
   loading: () => <SkeletonBoard />,
 });
 
 const HomePage = () => {
   return (
-    <main className={cn("min-h-[100dvh] h-full", "max-w-screen-xl w-full", "flex flex-col mx-auto p-4")}>
-      <EmotionCardModal />
-      <EmotionCardsBoard />
-    </main>
+    <Fragment>
+      <div className="flex flex-wrap items-center justify-between">
+        <h1 className="text-3xl font-bold mb-4">Board</h1>
+      </div>
+
+      <ActionWrapper />
+      <EmotionBoard />
+    </Fragment>
   );
 };
 
