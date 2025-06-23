@@ -48,12 +48,12 @@ class EmotionStore {
     }
   }
 
-  setEmotionCards(cards: EmotionData[]) {
-    this.emotions = cards;
+  setEmotions(emotions: EmotionData[]) {
+    this.emotions = emotions;
     this.saveToLocalStorage();
   }
 
-  addEmotionCard({ emotion, comment }: EmotionFormFields) {
+  addEmotion({ emotion, comment }: EmotionFormFields) {
     const newEmotion: EmotionData = {
       id: crypto.randomUUID(),
       value: emotion,
@@ -66,12 +66,12 @@ class EmotionStore {
     this.saveToLocalStorage();
   }
 
-  removeEmotionCard(id: string) {
+  removeEmotion(id: string) {
     this.emotions = this.emotions.filter((emotion) => emotion.id !== id);
     this.saveToLocalStorage();
   }
 
-  clearAllEmotionCards() {
+  clearAllEmotions() {
     this.emotions = [];
     this.saveToLocalStorage();
   }

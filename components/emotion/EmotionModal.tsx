@@ -37,7 +37,7 @@ const EmotionModal = () => {
     return (
       <Dialog open={isOpen} onOpenChange={handleToggleOpen}>
         <DialogTrigger asChild>
-          <AddEmotionButton classNames="mb-4" />
+          <AddEmotionButton />
         </DialogTrigger>
 
         <DialogContent className="min-w-[600px] max-h-[calc(100dvh-50px)] flex flex-col">
@@ -56,7 +56,7 @@ const EmotionModal = () => {
   return (
     <Drawer open={isOpen} onOpenChange={handleToggleOpen}>
       <DrawerTrigger asChild>
-        <AddEmotionButton classNames="mb-4" />
+        <AddEmotionButton />
       </DrawerTrigger>
 
       <DrawerContent className="max-h-[calc(100dvh-50px)] !h-auto">

@@ -25,7 +25,7 @@ const EmotionForm = ({ onClose }: EmotionFormProps) => {
   const { handleSubmit, control } = emotionForm;
 
   const onSubmit = (formData: EmotionFormFields) => {
-    emotionCardStore.addEmotionCard(formData);
+    emotionCardStore.addEmotion(formData);
     onClose();
   };
 

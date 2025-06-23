@@ -66,7 +66,7 @@ const EmotionBoard = () => {
         if (oldIndex === -1 || newIndex === -1) return;
 
         const newOrder = arrayMove(emotions, oldIndex, newIndex);
-        EmotionStore.setEmotionCards(newOrder);
+        EmotionStore.setEmotions(newOrder);
       }
     },
 
@@ -74,7 +74,7 @@ const EmotionBoard = () => {
   );
 
   const handleCardDelete = useCallback((id: string) => {
-    EmotionStore.removeEmotionCard(id);
+    EmotionStore.removeEmotion(id);
   }, []);
 
   if (emotions.length === 0) {
