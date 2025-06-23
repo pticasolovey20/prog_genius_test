@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import EmotionStore from "@/stores/EmotionStore";
 
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -18,11 +19,13 @@ const ClearEmotionButton = dynamic(() => import("@/components/emotion/ClearEmoti
 });
 
 const EmotionActionWrapper = () => {
+  const showClearButton = EmotionStore.emotions.length > 0;
+
   return (
     <div className="md:max-w-[50%] md:w-full flex flex-col md:flex-row gap-2 mb-4">
       <EmotionModal />
       <ViewStatisticButton />
-      <ClearEmotionButton />
+      {showClearButton && <ClearEmotionButton />}
     </div>
   );
 };
