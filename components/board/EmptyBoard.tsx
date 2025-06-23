@@ -4,7 +4,7 @@ interface EmptyBoardProps {
 
 const EmptyBoard = ({ content }: EmptyBoardProps) => {
   return (
-    <div>
+    <div className="mt-8">
       <p className="text-center md:text-left text-muted-foreground font-medium">{content}</p>
     </div>
   );
