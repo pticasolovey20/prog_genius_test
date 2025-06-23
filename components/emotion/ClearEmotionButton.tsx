@@ -1,18 +1,14 @@
 "use client";
+import EmotionStore from "@/stores/EmotionStore";
 
 import { Button } from "@/components/ui/button";
-import EmotionStore from "@/stores/EmotionStore";
 
 const ClearEmotionButton = () => {
   const handleClearEmotions = () => EmotionStore.clearAllEmotions();
 
   return (
-    <Button
-      variant="destructive"
-      className="h-10 max-w-[200px] w-full text-base font-semibold"
-      onClick={handleClearEmotions}
-    >
-      Clear Emotions
+    <Button size="lg" variant="destructive" className="h-10 w-full flex shrink px-4" onClick={handleClearEmotions}>
+      <span className="text-base font-semibold">Clear Emotions</span>
     </Button>
   );
 };
