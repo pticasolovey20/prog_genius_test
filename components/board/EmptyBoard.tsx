@@ -5,7 +5,7 @@ interface EmptyBoardProps {
 const EmptyBoard = ({ content }: EmptyBoardProps) => {
   return (
     <div>
-      <p className="text-muted-foreground">{content}</p>
+      <p className="text-center md:text-left text-muted-foreground font-medium">{content}</p>
     </div>
   );
 };
