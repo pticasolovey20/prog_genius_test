@@ -5,3 +5,5 @@ export interface EmotionCardData {
   color: string;
   comment: string;
 }
+
+export type StatisticPeriod = "today" | "week" | "month";

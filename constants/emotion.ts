@@ -164,3 +164,9 @@ export const emotionColorMap: Record<string, string> = {
   boredom: "#CBD5E0",
   confidence: "#3182CE",
 };
+
+export const periodOptions = [
+  { value: "today", label: "Today / Сегодня" },
+  { value: "week", label: "Week / Неделя" },
+  { value: "month", label: "Month / Месяц" },
+];
