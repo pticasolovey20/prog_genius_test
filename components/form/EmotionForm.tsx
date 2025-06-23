@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import emotionCardStore from "@/stores/EmotionCardStore";
-import { EmotionFormFields } from "@/types/emotionFormTypes";
+import emotionCardStore from "@/stores/EmotionStore";
+import { EmotionFormFields } from "@/types/emotionTypes";
 import { EmotionFormSchema } from "@/schemas/EmotionFormSchema";
 
 import { Form, FormItem, FormField, FormLabel, FormControl, FormMessage } from "@/components/ui/form";

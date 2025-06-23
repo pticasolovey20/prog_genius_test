@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
-import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
+import { useSortable } from "@dnd-kit/sortable";
 
 interface SortableContainerProps {
   id: string;
@@ -8,14 +8,7 @@ interface SortableContainerProps {
 }
 
 const SortableContainer = ({ id, children }: SortableContainerProps) => {
-  const {
-    attributes,
-    listeners,
-    setNodeRef,
-    transform,
-    transition,
-    isDragging,
-  } = useSortable({ id });
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id });
 
   const style = {
     transform: CSS.Transform.toString(transform),

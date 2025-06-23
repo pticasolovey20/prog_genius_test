@@ -25,7 +25,7 @@ import {
 import EmotionForm from "@/components/form/EmotionForm";
 import AddEmotionButton from "@/components/AddEmotionButton";
 
-const EmotionCardModal = () => {
+const EmotionModal = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const isDesktop = useMediaQuery("(min-width: 768px)");
@@ -72,4 +72,4 @@ const EmotionCardModal = () => {
   );
 };
 
-export default EmotionCardModal;
+export default EmotionModal;

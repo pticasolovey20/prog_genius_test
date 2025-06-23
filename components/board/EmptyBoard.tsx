@@ -1,7 +1,11 @@
-const EmptyBoard = () => {
+interface EmptyBoardProps {
+  content: string;
+}
+
+const EmptyBoard = ({ content }: EmptyBoardProps) => {
   return (
     <div>
-      <p className="text-muted-foreground">Oops! No emotion cards found. Add your first emotion card</p>
+      <p className="text-muted-foreground">{content}</p>
     </div>
   );
 };

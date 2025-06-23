@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 import { periodOptions } from "@/constants/emotion";
-import { StatisticPeriod } from "@/types/emotionCardTypes";
+import { StatisticPeriod } from "@/types/emotionTypes";
 
 import { Button } from "@/components/ui/button";
 
