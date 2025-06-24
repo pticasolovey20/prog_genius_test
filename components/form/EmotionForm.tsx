@@ -22,7 +22,7 @@ const EmotionForm = ({ onClose }: EmotionFormProps) => {
     resolver: zodResolver(EmotionFormSchema),
   });
 
-  const { handleSubmit, control } = emotionForm;
+  const { handleSubmit, control, formState } = emotionForm;
 
   const onSubmit = (formData: EmotionFormFields) => {
     emotionCardStore.addEmotion(formData);
@@ -64,7 +64,7 @@ const EmotionForm = ({ onClose }: EmotionFormProps) => {
           )}
         />
 
-        <Button size="lg" type="submit">
+        <Button size="lg" type="submit" disabled={formState.isSubmitting}>
           Add Emotion
         </Button>
       </form>
